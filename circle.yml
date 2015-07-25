@@ -1,20 +1,4 @@
-machine:
-  environment:
-    ANDROID_HOME: /home/ubuntu/android
-
-dependencies:
-  cache_directories:
-    - ~/.android
-    - ~/android
-
 test:
   override:
     # run tests  against the emulator.
-    - ./gradlew :winchr-api-client:test
-    - ./gradlew :app:test
-    # copy the build outputs to artifacts
-    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
-    - cp -r winchr-api-client/build/outputs $CIRCLE_ARTIFACTS
-    # copy the test results to the test results directory.
-    - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
-    - cp -r winchr-api-client/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    - ./gradlew assembleDebug
