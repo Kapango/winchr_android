@@ -4,6 +4,9 @@ machine:
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
 dependencies:
+  pre:
+    - chmod +x gradlew
+
   cache_directories:
     - ~/.gradle
     - ~/.android
@@ -15,8 +18,10 @@ dependencies:
     - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
     - echo y | android update sdk --no-ui --all --filter "extra-android-support"
 test:
+  pre:
+    - chmod +x gradlew
+
   override:
-  
     # run infer
     - ./gradlew clean
     - ./gradlew test
