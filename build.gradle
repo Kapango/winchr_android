@@ -1,3 +1,8 @@
+//See note below
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
 buildscript {
     repositories {
         jcenter()
